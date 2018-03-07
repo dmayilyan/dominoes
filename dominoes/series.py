@@ -1,5 +1,6 @@
 import dominoes
 
+
 class Series:
     '''
     Python class for objects that represent a series of dominoes games.
@@ -125,7 +126,7 @@ class Series:
             starting_player = result.player
         elif not result.points:
             starting_player = self.games[-1].starting_player
-        else: # pow(-1, result.player) * result.points < 0
+        else:  # pow(-1, result.player) * result.points < 0
             starting_player = dominoes.game.next_player(result.player)
 
         # start the next game

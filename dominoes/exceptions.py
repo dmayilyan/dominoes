@@ -5,12 +5,14 @@ class EmptyBoardException(Exception):
     '''
     pass
 
+
 class EndsMismatchException(Exception):
     '''
     Exception to be raised for errors
     involving mismatched domino ends.
     '''
     pass
+
 
 class GameInProgressException(Exception):
     '''
@@ -19,12 +21,14 @@ class GameInProgressException(Exception):
     '''
     pass
 
+
 class GameOverException(Exception):
     '''
     Exception to be raised for errors
     involving a game that has ended.
     '''
     pass
+
 
 class NoSuchDominoException(Exception):
     '''
@@ -33,12 +37,14 @@ class NoSuchDominoException(Exception):
     '''
     pass
 
+
 class NoSuchPlayerException(Exception):
     '''
     Exception to be raised for errors
     involving a specific missing player.
     '''
     pass
+
 
 class SeriesOverException(Exception):
     '''

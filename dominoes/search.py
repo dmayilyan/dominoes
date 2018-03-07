@@ -2,6 +2,7 @@ import copy
 import dominoes
 import operator
 
+
 def make_moves(game, player=dominoes.players.identity):
     '''
     For each of a Game object's valid moves, yields
@@ -37,6 +38,7 @@ def make_moves(game, player=dominoes.players.identity):
     game.make_move(*move)
     yield move, game
 
+
 def alphabeta(game, alpha_beta=(-float('inf'), float('inf')),
               player=dominoes.players.identity):
     '''
@@ -59,12 +61,16 @@ def alphabeta(game, alpha_beta=(-float('inf'), float('inf')),
         # minimizing player
         best_value = float('inf')
         op = operator.lt
-        update = lambda ab, v: (ab[0], min(ab[1], v))
+
+        def update(ab, v):
+            return (ab[0], min(ab[1], v))
     else:
         # maximizing player
         best_value = -float('inf')
         op = operator.gt
-        update = lambda ab, v: (max(ab[0], v), ab[1])
+
+        def update(ab, v):
+            return (max(ab[0], v), ab[1])
 
     # recursive case - game is not over
     for move, new_game in make_moves(game, player):

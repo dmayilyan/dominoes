@@ -1,6 +1,7 @@
 import collections
 import dominoes
 
+
 class Board:
     '''
     Python class for objects that represent a domino board.

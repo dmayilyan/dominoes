@@ -33,6 +33,7 @@ import copy
 import dominoes
 import random as rand
 
+
 def identity(game):
     '''
     Leaves move preferences unchanged.
@@ -41,6 +42,7 @@ def identity(game):
     :return: None
     '''
     return
+
 
 class counter:
     '''
@@ -68,6 +70,7 @@ class counter:
         self.count += 1
         return self._player(game)
 
+
 def random(game):
     '''
     Prefers moves randomly.
@@ -76,6 +79,7 @@ def random(game):
     :return: None
     '''
     game.valid_moves = tuple(sorted(game.valid_moves, key=lambda _: rand.random()))
+
 
 def reverse(game):
     '''
@@ -86,6 +90,7 @@ def reverse(game):
     '''
     game.valid_moves = tuple(reversed(game.valid_moves))
 
+
 def bota_gorda(game):
     '''
     Prefers to play dominoes with higher point values.
@@ -95,6 +100,7 @@ def bota_gorda(game):
     '''
     game.valid_moves = tuple(sorted(game.valid_moves, key=lambda m: -(m[0].first + m[0].second)))
 
+
 def double(game):
     '''
     Prefers to play doubles.
@@ -103,6 +109,7 @@ def double(game):
     :return: None
     '''
     game.valid_moves = tuple(sorted(game.valid_moves, key=lambda m: m[0].first != m[0].second))
+
 
 class omniscient:
     '''
@@ -151,6 +158,7 @@ class omniscient:
         # place the optimal move at the beginning of game.valid_moves,
         # while leaving the rest of the ordering unchanged
         game.valid_moves = (moves[0],) + tuple(m for m in game.valid_moves if m != moves[0])
+
 
 class probabilistic_alphabeta:
     '''

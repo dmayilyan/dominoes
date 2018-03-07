@@ -3,6 +3,7 @@ import dominoes
 import itertools
 import random
 
+
 def _randomized_hands():
     '''
     :return: 4 hands, obtained by shuffling the 28 dominoes used in
@@ -12,6 +13,7 @@ def _randomized_hands():
     random.shuffle(all_dominoes)
     return [dominoes.Hand(all_dominoes[0:7]), dominoes.Hand(all_dominoes[7:14]),
             dominoes.Hand(all_dominoes[14:21]), dominoes.Hand(all_dominoes[21:28])]
+
 
 def _validate_player(player):
     '''
@@ -27,6 +29,7 @@ def _validate_player(player):
         raise dominoes.NoSuchPlayerException('{} is not a valid player. Valid players'
                                              ' are: {}'.format(player, valid_players))
 
+
 def _domino_hand(d, hands):
     '''
     :param Domino d: domino to find within the hands
@@ -40,6 +43,7 @@ def _domino_hand(d, hands):
 
     raise dominoes.NoSuchDominoException('{} is not in any hand!'.format(d))
 
+
 def _remaining_points(hands):
     '''
     :param list hands: hands for which to compute the remaining points
@@ -51,6 +55,7 @@ def _remaining_points(hands):
         points.append(sum(d.first + d.second for d in hand))
 
     return points
+
 
 def _validate_hands(hands, missing):
     '''
@@ -70,6 +75,7 @@ def _validate_hands(hands, missing):
                 return False
 
     return True
+
 
 def _all_possible_partitionings(elements, sizes):
     '''
@@ -99,6 +105,7 @@ def _all_possible_partitionings(elements, sizes):
         for other_partitions in _all_possible_partitionings(elements.difference(partition), sizes):
             # put results together and yield up
             yield (partition,) + other_partitions
+
 
 def next_player(player):
     '''

@@ -1,5 +1,6 @@
 import dominoes
 
+
 class SkinnyBoard:
     '''
     Python class for objects that represent a domino board.

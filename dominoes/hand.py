@@ -1,6 +1,7 @@
 import collections
 import dominoes
 
+
 def contains_value(hand, value):
     '''
     Checks whether a value appears in any of the dominoes in the hand.
@@ -14,6 +15,7 @@ def contains_value(hand, value):
             return True
 
     return False
+
 
 class Hand(collections.abc.Sequence):
     '''
