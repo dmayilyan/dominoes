@@ -39,8 +39,14 @@ class Domino(DominoBase):
         '''
         return Domino(self.second, self.first)
 
+    def get_domino(self):
+        dom_dict = {(i, j): chr(127025 + 7 * i + j)
+                    for i in range(0, 7)
+                    for j in range(0, 7)}
+        return dom_dict[(self.first, self.second)]
+
     def __str__(self):
-        return '[{}|{}]'.format(self.first, self.second)
+        return '{} '.format(self.get_domino())
 
     def __repr__(self):
         return str(self)

@@ -1,4 +1,3 @@
-import collections
 import dominoes
 
 
@@ -17,7 +16,7 @@ def contains_value(hand, value):
     return False
 
 
-class Hand(collections.abc.Sequence):
+class Hand():
     '''
     Python class for objects that represent a hand of dominoes.
 

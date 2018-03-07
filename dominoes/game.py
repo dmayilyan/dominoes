@@ -117,6 +117,7 @@ def next_player(player):
     '''
     return (player + 1) % 4
 
+
 class Game:
     '''
     Python class for objects that represent a dominoes game.
